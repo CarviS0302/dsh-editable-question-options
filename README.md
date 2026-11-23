@@ -6,6 +6,20 @@ A DeepSeek Harness Web plugin that makes `ask_user_question` option cards editab
 
 When an agent asks a choice question, the option closest to what you want often needs a small adjustment. The stock card only lets you pick an option or type a separate custom answer. This plugin adds a pencil to every option: pick the closest choice, edit its label and details in place, save, and submit the original option together with your revision.
 
+## Screenshots
+
+**Pick the closest option** — every option has a pencil:
+
+![Question card with a pencil next to every option](assets/screenshot-1.png)
+
+**Edit the label and details in place**:
+
+![Inline editor for the option label and description](assets/screenshot-2.png)
+
+**Save and submit** — the option is selected and marked Edited; the answer keeps the original choice plus your revision:
+
+![Saved option marked Edited, with the card ready to submit](assets/screenshot-3.png)
+
 ## What it does
 
 - Takes over the composer for generic `ask_user_question` requests that offer options.

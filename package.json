@@ -19,6 +19,8 @@
     "locale/*.json",
     "icon.svg",
     "assets/icon-180.png",
+    "assets/screenshot-*.png",
+    "screenshots.json",
     "README.md",
     "LICENSE",
     "NOTICE.md"
