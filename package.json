@@ -1,0 +1,56 @@
+{
+  "name": "dsh-editable-question-options",
+  "version": "1.0.0",
+  "description": "Edit ask_user_question option cards before answering: select the closest option, adjust its label and details in place, and submit the original choice together with your revision.",
+  "license": "MIT",
+  "author": "CarviS0302",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "assets/icon-180.png",
+    "README.md",
+    "LICENSE",
+    "NOTICE.md"
+  ],
+  "keywords": [
+    "deepseek",
+    "harness",
+    "dsh",
+    "dsh-plugin",
+    "ask-user-question",
+    "editable-options",
+    "ui"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CarviS0302/dsh-editable-question-options.git"
+  },
+  "homepage": "https://github.com/CarviS0302/dsh-editable-question-options#readme",
+  "bugs": {
+    "url": "https://github.com/CarviS0302/dsh-editable-question-options/issues"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-locale"
+      ]
+    }
+  }
+}

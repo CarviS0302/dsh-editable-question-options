@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Editable Question Options",
+    "description": "Pick the closest ask_user_question option, tweak its label and details in place, and submit the edited answer together with the original choice."
+  }
+}
