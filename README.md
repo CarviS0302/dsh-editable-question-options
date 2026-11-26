@@ -34,6 +34,12 @@ When an agent asks a choice question, the option closest to what you want often 
 
 Requires a DSH Web/Desktop build with the `conversation.composer` chain. Tested on DSH **0.2.1-rc.3** and **0.2.2-rc.5**; other releases are unverified.
 
+From npm:
+
+```sh
+dsh plugin --profile <profile> add dsh-editable-question-options
+```
+
 From GitHub (the repository ships plain JavaScript, so no build step or `allowBuilds` permission is needed):
 
 ```sh
@@ -43,7 +49,7 @@ dsh plugin --profile <profile> add github:CarviS0302/dsh-editable-question-optio
 Pin a release tag:
 
 ```sh
-dsh plugin --profile <profile> add github:CarviS0302/dsh-editable-question-options#v1.0.0
+dsh plugin --profile <profile> add github:CarviS0302/dsh-editable-question-options#v1.0.1
 ```
 
 If you prefer the Plugins page, use **Plugins → Add plugin** and point it at the checkout.
@@ -75,7 +81,7 @@ The exact `custom` wording follows the UI language (Chinese or English).
 
 ## Compatibility and conflicts
 
-- No `engines.dsh` gate is declared. node-semver's prerelease rules make a broad range silently exclude future `-rc` releases, so instead the plugin declines a question carrier it does not recognize at runtime and the shipped card takes over. Tested on 0.2.1-rc.3 and 0.2.2-rc.5; changes to the composer or question-carrier contract may still require an update.
+- Declares `engines.dsh: >=0.2.1-rc.3 <0.3.0-0`. DSH's host compatibility gate enables semver prereleases, so this range covers the tested 0.2.x releases while gating 0.3.x until it is verified. The plugin still declines a question carrier it does not recognize at runtime and lets the shipped card take over. Tested on 0.2.1-rc.3 and 0.2.2-rc.5; changes to the composer or question-carrier contract may still require an update.
 - Do **not** install this together with `dsh-question-note` or `dsh-better-choice`. All three take over the same composer chain; those plugins register at priority `-10`, so they would win and this plugin would stay inactive. This plugin registers at priority `-1`, between the subagent takeover (`-10`) and the shipped question card (`0`).
 
 ## Limitations
@@ -108,7 +114,15 @@ The exact `custom` wording follows the UI language (Chinese or English).
 
 ### 安装
 
-已在 DSH 0.2.1-rc.3、0.2.2-rc.5 验证。仓库内是纯 JS，无需构建，也不需要 `allowBuilds`：
+已在 DSH 0.2.1-rc.3、0.2.2-rc.5 验证。仓库内是纯 JS，无需构建，也不需要 `allowBuilds`。
+
+从 npm 安装：
+
+```sh
+dsh plugin --profile <profile> add dsh-editable-question-options
+```
+
+从 GitHub 安装：
 
 ```sh
 dsh plugin --profile <profile> add github:CarviS0302/dsh-editable-question-options
@@ -117,7 +131,7 @@ dsh plugin --profile <profile> add github:CarviS0302/dsh-editable-question-optio
 固定版本：
 
 ```sh
-dsh plugin --profile <profile> add github:CarviS0302/dsh-editable-question-options#v1.0.0
+dsh plugin --profile <profile> add github:CarviS0302/dsh-editable-question-options#v1.0.1
 ```
 
 ### 使用
@@ -126,6 +140,7 @@ dsh plugin --profile <profile> add github:CarviS0302/dsh-editable-question-optio
 
 ### 冲突与限制
 
+- 声明 `engines.dsh: >=0.2.1-rc.3 <0.3.0-0`。DSH 宿主的兼容检查会放行预发布版本，因此这个范围覆盖已验证的 0.2.x，并在 0.3.x 验证前先挡住；插件本身遇到不认识的 carrier 仍会让位给官方卡片。
 - **不要与 `dsh-question-note` 或 `dsh-better-choice` 同时安装**：它们和本插件都接管同一个 composer 链，并且注册在 priority `-10`，会先赢，导致本插件不生效。本插件注册在 `-1`（subagent 为 `-10`、官方问题卡片为 `0`）。
 - 未提交的编辑不会持久化，刷新页面会丢失；问题本身仍可从工具调用行重新打开。
 - `question.detail` 按纯文本渲染，不渲染 Markdown。

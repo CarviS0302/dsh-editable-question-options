@@ -1,10 +1,13 @@
 {
   "name": "dsh-editable-question-options",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Edit ask_user_question option cards before answering: select the closest option, adjust its label and details in place, and submit the original choice together with your revision.",
   "license": "MIT",
   "author": "CarviS0302",
   "type": "module",
+  "engines": {
+    "dsh": ">=0.2.1-rc.3 <0.3.0-0"
+  },
   "main": "index.js",
   "exports": {
     ".": "./index.js",
